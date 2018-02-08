@@ -22,15 +22,17 @@ void setup() {
   SPI.begin();                                                  // Init SPI bus
   mfrc522.PCD_Init();                                              // Init MFRC522 card
   Serial.println(F("Read personal data on a MIFARE PICC:"));    //shows in serial that it is ready to read
-  lastNameArray[0] = "Faisal";
-  lastNameArray[1] = "Shehri";
-  lastNameArray[2] = "???";
-  lastNameArray[3] = "Bahamel";
-  lastNameArray[4] = "Thabet";
-  lastNameArray[5] = "Seden";
-  lastNameArray[6] = "Saci";
-  lastNameArray[7] = "arkawi";
-  lastNameArray[8] = "Global";
+  lastNameArray[0] = "User1";
+  lastNameArray[1] = "User2";
+  lastNameArray[2] = "User3";
+  lastNameArray[3] = "User4";
+  lastNameArray[4] = "User5";
+  lastNameArray[5] = "User6";
+  lastNameArray[6] = "User7";
+  lastNameArray[7] = "User8";
+  lastNameArray[8] = "User9";
+  //change the array length in line 12 and put more entries
+  //then change the checkTimes variable 133 to number of entries
 
 }
 
@@ -127,10 +129,12 @@ void loop() {
   }
   lastNameStr = lastName;
 
-  for(int i = 0; i < 9; i++){
+  //Name chacker
+  int checkTimes= 9;
+  for(int i = 0; i < checkTimes; i++){
       if(lastNameStr == lastNameArray[i]){
             currentUser = i;
-            i = 9;
+            i = checkTimes;
         }
       }
 
